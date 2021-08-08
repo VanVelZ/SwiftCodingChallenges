@@ -40,4 +40,5 @@ func miniMaxSum(arr: [Int]) -> Void {
 
 }
 
-miniMaxSum(arr: [1, 2, 3, 4, 5])
+
+
