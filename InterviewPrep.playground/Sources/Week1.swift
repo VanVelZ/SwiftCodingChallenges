@@ -106,3 +106,17 @@ func formatString(text: String)->String{
     }
     return formattedString.trimmingCharacters(in: .whitespacesAndNewlines)
 }
+//https://www.hackerrank.com/challenges/three-month-preparation-kit-divisible-sum-pairs/problem?h_l=interview&playlist_slugs%5B%5D=preparation-kits&playlist_slugs%5B%5D=three-month-preparation-kit&playlist_slugs%5B%5D=three-month-week-one&h_r=next-challenge&h_v=zen
+func divisibleSumPairs(n: Int, k: Int, ar: [Int]) -> Int {
+    var pairs = 0
+    for i in 0..<ar.count{
+        let index = 1 + i
+        ar[index...].forEach { number in
+            if (ar[i] + number) % k == 0{
+                pairs+=1
+            }
+        }
+    }
+    
+    return pairs
+}

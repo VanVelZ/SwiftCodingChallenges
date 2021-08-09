@@ -1,13 +1,5 @@
 import Foundation
 
-
-
-print(formatString(text: "S;M;plasticCup()"))
-print(formatString(text: "C;V;mobile phone"))
-print(formatString(text: "C;C;coffee machine"))
-print(formatString(text: "S;C;LargeSoftwareBook"))
-print(formatString(text: "C;M;white sheet of paper"))
-print(formatString(text: "S;V;pictureFrame"))
-
-
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(divisibleSumPairs(n: arr.count, k: 2, ar: arr))
 
