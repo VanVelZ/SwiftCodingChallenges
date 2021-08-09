@@ -40,5 +40,69 @@ func miniMaxSum(arr: [Int]) -> Void {
 
 }
 
+//https://www.hackerrank.com/challenges/three-month-preparation-kit-time-conversion/problem?h_l=interview&playlist_slugs%5B%5D=preparation-kits&playlist_slugs%5B%5D=three-month-preparation-kit&playlist_slugs%5B%5D=three-month-week-one
+//Given a time in 12-hour AM/PM format, convert it to military (24-hour) time.
+func timeConversion(s: String) -> String {
+    // Get the pieces of the string
+    let splitString = s.components(separatedBy: ":")
+    let isAM = splitString[2].filter{!"0123456789M".contains($0)}.contains("A")
+    var hours = Int(splitString[0]) ?? 0
+    hours = hours == 12 ?
+        isAM ? 0 : hours :
+        isAM ? hours : hours + 12
+    let hoursString = hours < 10 ? "0\(hours)" : "\(hours)"
+    let min = splitString[1]
+    let seconds = splitString[2].filter("0123456789.".contains)
+    
+    
+    return "\(hoursString):\(min):\(seconds)"
+}
+//https://www.hackerrank.com/challenges/three-month-preparation-kit-breaking-best-and-worst-records/problem?h_l=interview&playlist_slugs%5B%5D=preparation-kits&playlist_slugs%5B%5D=three-month-preparation-kit&playlist_slugs%5B%5D=three-month-week-one&h_r=next-challenge&h_v=zen
+//Given the scores for a season, determine the number of times Maria breaks her records for most and least points scored during the season.
+func breakingRecords(scores: [Int]) -> [Int] {
+    var min = 0
+    var max = 0
+    
+    var minRecord = scores[0]
+    var maxRecord = scores[0]
+    
+    for score in scores[1...] {
+        if score < minRecord{
+            min += 1
+            minRecord = score
+        }
+        else if score > maxRecord{
+            max += 1
+            maxRecord = score
+        }
+    }
+    return [max, min]
+}
 
-
+//https://www.hackerrank.com/challenges/three-month-preparation-kit-camel-case/problem?h_l=interview&playlist_slugs%5B%5D=preparation-kits&playlist_slugs%5B%5D=three-month-preparation-kit&playlist_slugs%5B%5D=three-month-week-one
+//Your task is to write a program that creates or splits Camel Case variable, method, and class names.
+func formatString(text: String)->String{
+    //Split the input string up to get instructions and string to mutate
+    let splitString = text.components(separatedBy: ";")
+    //Get individual words to mutate from the split string
+    var formattedString:String = ""
+    //Apply necessary changes to the string
+    if splitString[0] == "S"{
+        let strings:[String] = splitString[2]
+            .filter{!"()".contains($0)}
+            .splitBefore(separator: {$0.isUppercase})
+            .map{String($0)}
+        strings.forEach { string in
+            formattedString.append("\(string) ".lowercased())
+        }
+    }
+    else {
+        let strings:[String] = splitString[2]
+            .filter{!"()".contains($0)}
+            .components(separatedBy: " ")
+        formattedString = splitString[1] == "C" ? strings[0].capitalized : strings[0].lowercased()
+        strings[1...].forEach{formattedString.append($0.capitalized)}
+        if splitString[1] == "M"{ formattedString.append("()")}
+    }
+    return formattedString.trimmingCharacters(in: .whitespacesAndNewlines)
+}
