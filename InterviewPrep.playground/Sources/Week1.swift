@@ -57,6 +57,7 @@ func timeConversion(s: String) -> String {
     
     return "\(hoursString):\(min):\(seconds)"
 }
+
 //https://www.hackerrank.com/challenges/three-month-preparation-kit-breaking-best-and-worst-records/problem?h_l=interview&playlist_slugs%5B%5D=preparation-kits&playlist_slugs%5B%5D=three-month-preparation-kit&playlist_slugs%5B%5D=three-month-week-one&h_r=next-challenge&h_v=zen
 //Given the scores for a season, determine the number of times Maria breaks her records for most and least points scored during the season.
 func breakingRecords(scores: [Int]) -> [Int] {
@@ -106,6 +107,7 @@ func formatString(text: String)->String{
     }
     return formattedString.trimmingCharacters(in: .whitespacesAndNewlines)
 }
+
 //https://www.hackerrank.com/challenges/three-month-preparation-kit-divisible-sum-pairs/problem?h_l=interview&playlist_slugs%5B%5D=preparation-kits&playlist_slugs%5B%5D=three-month-preparation-kit&playlist_slugs%5B%5D=three-month-week-one&h_r=next-challenge&h_v=zen
 func divisibleSumPairs(n: Int, k: Int, ar: [Int]) -> Int {
     var pairs = 0
@@ -119,4 +121,21 @@ func divisibleSumPairs(n: Int, k: Int, ar: [Int]) -> Int {
     }
     
     return pairs
+}
+
+//https://www.hackerrank.com/challenges/three-month-preparation-kit-sparse-arrays/problem?h_l=interview&playlist_slugs%5B%5D=preparation-kits&playlist_slugs%5B%5D=three-month-preparation-kit&playlist_slugs%5B%5D=three-month-week-one
+// For each query string, determine how many times it occurs in the list of input strings. Return an array of the results.
+func matchingStrings(strings: [String], queries: [String]) -> [Int] {
+    var matches:[Int] = []
+    for query in queries {
+        matches.append(strings.filter{$0 == query}.count)
+    }
+    return matches
+}
+
+//Week 1 Test
+func findMedian(arr: [Int]) -> Int {
+    print(arr.count / 2)
+    return arr.sorted()[arr.count / 2]
+
 }
