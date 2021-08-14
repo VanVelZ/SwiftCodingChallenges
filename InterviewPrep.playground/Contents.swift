@@ -21,6 +21,3 @@ import Foundation
 //            [3, 5, 7]]
 //diagonalDifference(arr: test)
 
-
-
-countingValleys(steps: 1, path: "DUDUD")
