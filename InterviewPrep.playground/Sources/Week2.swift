@@ -57,3 +57,14 @@ func pangrams(s: String) -> String {
     }
     return "pangram"
 }
+
+//https://www.hackerrank.com/challenges/three-month-preparation-kit-diagonal-difference/problem?h_l=interview&playlist_slugs%5B%5D=preparation-kits&playlist_slugs%5B%5D=three-month-preparation-kit&playlist_slugs%5B%5D=three-month-week-two&h_r=next-challenge&h_v=zen
+//Given a square matrix, calculate the absolute difference between the sums of its diagonals.
+func diagonalDifference(arr: [[Int]]) -> Int {
+    var firstSum = 0, secondSum = 0
+    for i in 0..<arr.count{
+        firstSum += arr[i][i]
+        secondSum += arr[i][arr.count - 1 - i]
+    }
+    return abs(firstSum - secondSum)
+}
