@@ -68,3 +68,16 @@ func diagonalDifference(arr: [[Int]]) -> Int {
     }
     return abs(firstSum - secondSum)
 }
+
+//https://www.hackerrank.com/challenges/three-month-preparation-kit-mars-exploration/problem?h_l=interview&playlist_slugs%5B%5D=preparation-kits&playlist_slugs%5B%5D=three-month-preparation-kit&playlist_slugs%5B%5D=three-month-week-two
+//Given the signal received by Earth as a string, , determine how many letters of the SOS message have been changed by radiation.
+func marsExploration(s: String) -> Int {
+    let sos = "SOS"
+    var count = 0
+    for i in 0..<s.count{
+        let a = s[s.index(s.firstIndex(of: s.first!)!, offsetBy: String.IndexDistance(i))]
+        let b = sos[sos.index(s.firstIndex(of: s.first!)!, offsetBy: String.IndexDistance(i % 3))]
+        if a != b {count+=1}
+    }
+    return count
+}
