@@ -35,3 +35,33 @@ public extension String {
         self = self.capitalizingFirstLetter()
     }
 }
+public extension StringProtocol {
+    subscript(offset: Int) -> Character {
+        self[index(startIndex, offsetBy: offset)]
+    }
+    func substring(_ bounds: Range<Int>) -> String {
+        let start = index(startIndex, offsetBy: bounds.lowerBound)
+        let end = index(startIndex, offsetBy: bounds.upperBound)
+        let myRange = start..<end
+        return String(self[myRange]) 
+    }
+    func substring(_ bounds: ClosedRange<Int>) -> String {
+        let start = index(startIndex, offsetBy: bounds.lowerBound)
+        let end = index(startIndex, offsetBy: bounds.upperBound)
+        let myRange = start..<end
+        return String(self[myRange]) 
+    }
+    func substring(_ bounds: PartialRangeFrom<Int>) -> String {
+        let start = index(startIndex, offsetBy: bounds.lowerBound)
+        let end = endIndex
+        let myRange = start..<end
+        return String(self[myRange]) 
+    }
+    
+    func substring(_ bounds: PartialRangeThrough<Int>) -> String {
+        let start = startIndex
+        let end = index(startIndex, offsetBy: bounds.upperBound)
+        let myRange = start..<end
+        return String(self[myRange]) 
+    }
+}

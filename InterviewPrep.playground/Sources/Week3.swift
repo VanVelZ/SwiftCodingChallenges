@@ -1,7 +1,7 @@
 import Foundation
 
 //https://www.hackerrank.com/challenges/three-month-preparation-kit-two-arrays/problem?isFullScreen=true&h_l=interview&playlist_slugs%5B%5D=preparation-kits&playlist_slugs%5B%5D=three-month-preparation-kit&playlist_slugs%5B%5D=three-month-week-three
-func twoArrays(k: Int, A: [Int], B: [Int]) -> String {
+public func twoArrays(k: Int, A: [Int], B: [Int]) -> String {
     let (first, second) = (A.sorted(), B.sorted{$0 < $1})
     for index in 0..<A.count {
         if first[index] + second[index] < k {
@@ -11,7 +11,7 @@ func twoArrays(k: Int, A: [Int], B: [Int]) -> String {
     return "YES"
 }
 //https://www.hackerrank.com/challenges/three-month-preparation-kit-the-birthday-bar/problem?isFullScreen=true&h_l=interview&playlist_slugs%5B%5D=preparation-kits&playlist_slugs%5B%5D=three-month-preparation-kit&playlist_slugs%5B%5D=three-month-week-three
-func birthday(s: [Int], d: Int, m: Int) -> Int {
+public func birthday(s: [Int], d: Int, m: Int) -> Int {
     var numberOfWaysToDivide = 0
     for index in 0..<s.count {
         if index + m > s.count {return numberOfWaysToDivide}
@@ -25,7 +25,7 @@ func birthday(s: [Int], d: Int, m: Int) -> Int {
     return numberOfWaysToDivide
 }
 //https://www.hackerrank.com/challenges/three-month-preparation-kit-migratory-birds/problem?isFullScreen=true&h_l=interview&playlist_slugs%5B%5D=preparation-kits&playlist_slugs%5B%5D=three-month-preparation-kit&playlist_slugs%5B%5D=three-month-week-three
-func migratoryBirds(arr: [Int]) -> Int {
+public func migratoryBirds(arr: [Int]) -> Int {
     // Write your code here
     var occurences: [(Int, Int)] = []
     let sorted = arr.sorted()
@@ -50,4 +50,25 @@ func migratoryBirds(arr: [Int]) -> Int {
         }
     }
     return mostOccured.0
+}
+//https://www.hackerrank.com/challenges/three-month-preparation-kit-maximum-perimeter-triangle/problem?isFullScreen=true&h_l=interview&playlist_slugs%5B%5D=preparation-kits&playlist_slugs%5B%5D=three-month-preparation-kit&playlist_slugs%5B%5D=three-month-week-three
+public func maximumPerimeterTriangle(sticks: [Int]) -> [Int] {
+    func isValidTriangle(a: Int, b: Int, c: Int) -> Bool{
+        a+b>c && b+c>a && a+c>b
+    }
+    let sortedSticks:[Int] = sticks.sorted().reversed()
+    //1: Figure out which three sticks can form a triangle(a+b>c && b+c>a && a+c>b) 
+    for i in 0..<sortedSticks.count - 2 {
+        if isValidTriangle(a: sortedSticks[i], b: sortedSticks[i + 1], c: sortedSticks[i + 2]){
+            return [sortedSticks[i], sortedSticks[i + 1], sortedSticks[i + 2]].sorted()
+        }
+    }
+    return [-1]
+}
+public func pageCount(n: Int, p: Int) -> Int {
+    // n = page length
+    // p = page to arrive at
+    let fromFront:Double = floor((Double(p) / 2.0))
+    let fromBack:Double = floor(Double((n)) / 2.0)
+    return Int(min(fromFront, fromBack - fromFront))
 }

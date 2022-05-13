@@ -2,7 +2,7 @@ import Foundation
 
 //https://www.hackerrank.com/challenges/three-month-preparation-kit-plus-minus/problem?h_l=interview&playlist_slugs%5B%5D=preparation-kits&playlist_slugs%5B%5D=three-month-preparation-kit&playlist_slugs%5B%5D=three-month-week-one
 //Given an array, print the ratio of positive, negative and zero numbers with 6 decimal places
-func plusMinus(arr: [Int]) -> Void {
+public func plusMinus(arr: [Int]) -> Void {
     
     var negative:Int = 0,
         postive:Int = 0,
@@ -31,7 +31,7 @@ func plusMinus(arr: [Int]) -> Void {
 
 //https://www.hackerrank.com/challenges/three-month-preparation-kit-mini-max-sum/problem?h_l=interview&playlist_slugs%5B%5D=preparation-kits&playlist_slugs%5B%5D=three-month-preparation-kit&playlist_slugs%5B%5D=three-month-week-one&h_r=next-challenge&h_v=zen
 //Given five positive integers, find the minimum and maximum values that can be calculated by summing exactly four of the five integers
-func miniMaxSum(arr: [Int]) -> Void {
+public func miniMaxSum(arr: [Int]) -> Void {
     // Write your code here
     let min = arr.sorted()[0..<arr.count - 1].reduce(0){$0 + $1},
         max = arr.sorted().reversed()[0..<arr.count - 1].reduce(0){$0 + $1}
@@ -42,7 +42,7 @@ func miniMaxSum(arr: [Int]) -> Void {
 
 //https://www.hackerrank.com/challenges/three-month-preparation-kit-time-conversion/problem?h_l=interview&playlist_slugs%5B%5D=preparation-kits&playlist_slugs%5B%5D=three-month-preparation-kit&playlist_slugs%5B%5D=three-month-week-one
 //Given a time in 12-hour AM/PM format, convert it to military (24-hour) time.
-func timeConversion(s: String) -> String {
+public func timeConversion(s: String) -> String {
     // Get the pieces of the string
     let splitString = s.components(separatedBy: ":")
     let isAM = splitString[2].filter{!"0123456789M".contains($0)}.contains("A")
@@ -60,7 +60,7 @@ func timeConversion(s: String) -> String {
 
 //https://www.hackerrank.com/challenges/three-month-preparation-kit-breaking-best-and-worst-records/problem?h_l=interview&playlist_slugs%5B%5D=preparation-kits&playlist_slugs%5B%5D=three-month-preparation-kit&playlist_slugs%5B%5D=three-month-week-one&h_r=next-challenge&h_v=zen
 //Given the scores for a season, determine the number of times Maria breaks her records for most and least points scored during the season.
-func breakingRecords(scores: [Int]) -> [Int] {
+public func breakingRecords(scores: [Int]) -> [Int] {
     var min = 0
     var max = 0
     
@@ -82,7 +82,7 @@ func breakingRecords(scores: [Int]) -> [Int] {
 
 //https://www.hackerrank.com/challenges/three-month-preparation-kit-camel-case/problem?h_l=interview&playlist_slugs%5B%5D=preparation-kits&playlist_slugs%5B%5D=three-month-preparation-kit&playlist_slugs%5B%5D=three-month-week-one
 //Your task is to write a program that creates or splits Camel Case variable, method, and class names.
-func formatString(text: String)->String{
+public func formatString(text: String)->String{
     //Split the input string up to get instructions and string to mutate
     let splitString = text.components(separatedBy: ";")
     //Get individual words to mutate from the split string
@@ -109,7 +109,7 @@ func formatString(text: String)->String{
 }
 
 //https://www.hackerrank.com/challenges/three-month-preparation-kit-divisible-sum-pairs/problem?h_l=interview&playlist_slugs%5B%5D=preparation-kits&playlist_slugs%5B%5D=three-month-preparation-kit&playlist_slugs%5B%5D=three-month-week-one&h_r=next-challenge&h_v=zen
-func divisibleSumPairs(n: Int, k: Int, ar: [Int]) -> Int {
+public func divisibleSumPairs(n: Int, k: Int, ar: [Int]) -> Int {
     var pairs = 0
     for i in 0..<ar.count{
         let index = 1 + i
@@ -125,7 +125,7 @@ func divisibleSumPairs(n: Int, k: Int, ar: [Int]) -> Int {
 
 //https://www.hackerrank.com/challenges/three-month-preparation-kit-sparse-arrays/problem?h_l=interview&playlist_slugs%5B%5D=preparation-kits&playlist_slugs%5B%5D=three-month-preparation-kit&playlist_slugs%5B%5D=three-month-week-one
 // For each query string, determine how many times it occurs in the list of input strings. Return an array of the results.
-func matchingStrings(strings: [String], queries: [String]) -> [Int] {
+public func matchingStrings(strings: [String], queries: [String]) -> [Int] {
     var matches:[Int] = []
     for query in queries {
         matches.append(strings.filter{$0 == query}.count)
@@ -134,7 +134,7 @@ func matchingStrings(strings: [String], queries: [String]) -> [Int] {
 }
 
 //Week 1 Test
-func findMedian(arr: [Int]) -> Int {
+public func findMedian(arr: [Int]) -> Int {
     print(arr.count / 2)
     return arr.sorted()[arr.count / 2]
 
