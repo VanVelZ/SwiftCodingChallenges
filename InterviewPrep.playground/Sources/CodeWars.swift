@@ -11,3 +11,16 @@ func findUnique(_ arr: [Int]) -> Int {
     }
     return unique
 }
+public func multipleOf3Or5(_ num: Int) -> Int {
+    (0..<num).reduce(0) { partial, number in 
+        number % 3 == 0 || number % 5 == 0 ? number + partial : partial
+    }
+}
+public func findDifference(_ a: [Int], _ b: [Int]) -> Int {
+    abs(a.reduce(1, *) - b.reduce(1, *))
+}
+public func multiplicationTable(_ number: Int) -> String {
+    (1...10).reduce("") {
+        $0 + "\($1) * \(number) = \($1 * number)\($1 == 10 ? "":"\n")"
+    }
+}
