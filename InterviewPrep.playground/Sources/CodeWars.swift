@@ -24,3 +24,16 @@ public func multiplicationTable(_ number: Int) -> String {
         $0 + "\($1) * \(number) = \($1 * number)\($1 == 10 ? "":"\n")"
     }
 }
+public func warnTheSheep(_ queue: [String]) -> String {
+    if queue.last == "wolf" {
+        return "Pls go away and stop eating my sheep"
+    }
+    let reversedQueue = Array(queue.reversed())
+    for i in 0..<reversedQueue.count {
+        if reversedQueue[i] == "wolf" {
+            return "Oi! Sheep number \(i)! You are about to be eaten by a wolf!"
+        }
+    }
+    return ""
+}
+
