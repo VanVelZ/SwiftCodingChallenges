@@ -1,6 +1,10 @@
 import Foundation
+public func quarter(of month: Int) -> Int {
+    let fraction: Double = (Double(month) / 3.0)
+    return Int(fraction.rounded(.up))
+}
 
-func findUnique(_ arr: [Int]) -> Int {
+public func findUnique(_ arr: [Int]) -> Int {
     let set = Set(arr)
     var unique: Int = -1
     set.forEach { element in
