@@ -1,4 +1,5 @@
 import Foundation
+
 public func quarter(of month: Int) -> Int {
     let fraction: Double = (Double(month) / 3.0)
     return Int(fraction.rounded(.up))
@@ -84,4 +85,9 @@ public func squareSum(_ vals: [Int]) -> Int {
     vals.reduce(0) { partial, number in
         partial + number * number
     }
+}
+public func menFromBoys(_ arr: [Int]) -> [Int] {
+    let evenNumbers = Set(arr.filter{$0 % 2 == 0})
+    let oddNumbers = Set(arr.filter{$0 % 2 != 0})
+    return Array(evenNumbers).sorted() + Array(oddNumbers).sorted().reversed()
 }
